@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Animated Website</title>
+    <style>
+        :root {
+            --primary: #2a2a72;
+            --secondary: #009ffd;
+            --accent: #ff0076;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* Animated gradient background */
+        .background {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(
+                45deg,
+                var(--primary),
+                var(--secondary),
+                var(--accent)
+            );
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            z-index: -1;
+        }
+
+        /* Floating particles effect */
+        .particles::after {
+            content: "";
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background-image: radial-gradient(
+                circle at 50% 50%,
+                rgba(255,255,255,0.1) 10%,
+                transparent 20%
+            );
+            background-size: 200px 200px;
+            animation: particleMove 20s linear infinite;
+            z-index: -1;
+        }
+
+        .content {
+            padding: 2rem;
+            color: white;
+            position: relative;
+            backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.3);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes particleMove {
+            100% { transform: translate(50%,50%); }
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 1rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background particles"></div>
+    
+    <div class="content">
+        <h1>Modern Animated Website</h1>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <div class="button-group">
+            <button class="btn">Feature One</button>
+            <button class="btn">Special Offer</button>
+            <button class="btn">Our Services</button>
+            <button class="btn">Contact Us</button>
+            <button class="btn">Learn More</button>
+        </div>
+    </div>
+</body>
+</html>
